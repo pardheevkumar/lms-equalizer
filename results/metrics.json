@@ -1,0 +1,282 @@
+{
+  "configuration": {
+    "description": "Symbol-rate FIR model; unit-power BPSK/QPSK; measured signal-power AWGN; training-only LMS followed by frozen-weight test",
+    "main_snr_db": 12,
+    "num_taps": 9,
+    "decision_delay": 2,
+    "mu": 0.018,
+    "training_samples": 2500,
+    "test_samples": 9000,
+    "channel_irs": {
+      "mild": [
+        0.9,
+        0.65,
+        -0.35
+      ],
+      "severe": [
+        0.65,
+        0.9,
+        -0.55,
+        0.3
+      ],
+      "flat": [
+        1.0
+      ]
+    },
+    "random_seeds_for_snr": [
+      2026,
+      2027,
+      2028
+    ],
+    "baseline": "Unequalized r[k] vs true symbol s[k]; LMS y[k+delay] vs s[k]"
+  },
+  "main_experiments": {
+    "BPSK": {
+      "scheme": "BPSK",
+      "SNR_dB": 12.0,
+      "step_size": 0.018,
+      "num_taps": 9,
+      "decision_delay": 2,
+      "channel": [
+        0.9,
+        0.65,
+        -0.35
+      ],
+      "train_symbols": 2500,
+      "test_symbols": 9000,
+      "raw_BER": 0.15488888888888888,
+      "LMS_BER": 0.021666666666666667,
+      "raw_EVM_rms": 0.7923665509389567,
+      "LMS_EVM_rms": 0.4550942203127774,
+      "last_500_training_MSE": 0.24893026856931894
+    },
+    "QPSK": {
+      "scheme": "QPSK",
+      "SNR_dB": 12.0,
+      "step_size": 0.018,
+      "num_taps": 9,
+      "decision_delay": 2,
+      "channel": [
+        0.9,
+        0.65,
+        -0.35
+      ],
+      "train_symbols": 2500,
+      "test_symbols": 9000,
+      "raw_BER": 0.15911111111111112,
+      "LMS_BER": 0.024722222222222222,
+      "raw_EVM_rms": 0.7949972938045798,
+      "LMS_EVM_rms": 0.4590296480606435,
+      "last_500_training_MSE": 0.24937167505146207
+    }
+  },
+  "step_size_sweep": [
+    {
+      "mu": 0.004,
+      "test_BER": 0.01711111111111111,
+      "test_EVM": 0.4382120160294449
+    },
+    {
+      "mu": 0.012,
+      "test_BER": 0.019333333333333334,
+      "test_EVM": 0.4464355309549735
+    },
+    {
+      "mu": 0.03,
+      "test_BER": 0.027444444444444445,
+      "test_EVM": 0.4714934178548949
+    },
+    {
+      "mu": 0.07,
+      "test_BER": 0.05988888888888889,
+      "test_EVM": 0.5718223912774754
+    }
+  ],
+  "filter_length_sweep": [
+    {
+      "num_taps": 3,
+      "test_BER": 0.03711111111111111,
+      "test_EVM": 0.48623760674139244
+    },
+    {
+      "num_taps": 5,
+      "test_BER": 0.027444444444444445,
+      "test_EVM": 0.46520113647876915
+    },
+    {
+      "num_taps": 9,
+      "test_BER": 0.021666666666666667,
+      "test_EVM": 0.4550942203127774
+    },
+    {
+      "num_taps": 13,
+      "test_BER": 0.022222222222222223,
+      "test_EVM": 0.45586829342690466
+    },
+    {
+      "num_taps": 17,
+      "test_BER": 0.02666666666666667,
+      "test_EVM": 0.4648215176781473
+    }
+  ],
+  "ber_vs_snr": [
+    {
+      "scheme": "BPSK",
+      "snr_db": 0,
+      "raw_ber_mean_3_seeds": 0.26122222222222224,
+      "lms_ber_mean_3_seeds": 0.24718518518518517,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 1
+    },
+    {
+      "scheme": "BPSK",
+      "snr_db": 4,
+      "raw_ber_mean_3_seeds": 0.20559259259259258,
+      "lms_ber_mean_3_seeds": 0.13248148148148148,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 1
+    },
+    {
+      "scheme": "BPSK",
+      "snr_db": 8,
+      "raw_ber_mean_3_seeds": 0.17155555555555554,
+      "lms_ber_mean_3_seeds": 0.06033333333333333,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 1
+    },
+    {
+      "scheme": "BPSK",
+      "snr_db": 12,
+      "raw_ber_mean_3_seeds": 0.16274074074074074,
+      "lms_ber_mean_3_seeds": 0.023407407407407408,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 1
+    },
+    {
+      "scheme": "BPSK",
+      "snr_db": 16,
+      "raw_ber_mean_3_seeds": 0.17585185185185184,
+      "lms_ber_mean_3_seeds": 0.01025925925925926,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 1
+    },
+    {
+      "scheme": "BPSK",
+      "snr_db": 20,
+      "raw_ber_mean_3_seeds": 0.20137037037037034,
+      "lms_ber_mean_3_seeds": 0.005518518518518519,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 1
+    },
+    {
+      "scheme": "QPSK",
+      "snr_db": 0,
+      "raw_ber_mean_3_seeds": 0.26025925925925925,
+      "lms_ber_mean_3_seeds": 0.25025925925925924,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 2
+    },
+    {
+      "scheme": "QPSK",
+      "snr_db": 4,
+      "raw_ber_mean_3_seeds": 0.20585185185185184,
+      "lms_ber_mean_3_seeds": 0.12381481481481482,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 2
+    },
+    {
+      "scheme": "QPSK",
+      "snr_db": 8,
+      "raw_ber_mean_3_seeds": 0.17251851851851852,
+      "lms_ber_mean_3_seeds": 0.054240740740740735,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 2
+    },
+    {
+      "scheme": "QPSK",
+      "snr_db": 12,
+      "raw_ber_mean_3_seeds": 0.164,
+      "lms_ber_mean_3_seeds": 0.021944444444444444,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 2
+    },
+    {
+      "scheme": "QPSK",
+      "snr_db": 16,
+      "raw_ber_mean_3_seeds": 0.1773703703703704,
+      "lms_ber_mean_3_seeds": 0.009962962962962963,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 2
+    },
+    {
+      "scheme": "QPSK",
+      "snr_db": 20,
+      "raw_ber_mean_3_seeds": 0.20127777777777778,
+      "lms_ber_mean_3_seeds": 0.005555555555555556,
+      "n_seeds": 3,
+      "n_symbols_per_seed": 9000,
+      "bits_per_symbol": 2
+    }
+  ],
+  "channel_sweep": [
+    {
+      "scheme": "BPSK",
+      "channel": "flat",
+      "raw_BER": 0.0,
+      "LMS_BER": 0.0,
+      "raw_EVM": 0.24989684596387546,
+      "LMS_EVM": 0.24977377135785966
+    },
+    {
+      "scheme": "BPSK",
+      "channel": "mild",
+      "raw_BER": 0.15488888888888888,
+      "LMS_BER": 0.021666666666666667,
+      "raw_EVM": 0.7923665509389567,
+      "LMS_EVM": 0.4550942203127774
+    },
+    {
+      "scheme": "BPSK",
+      "channel": "severe",
+      "raw_BER": 0.305,
+      "LMS_BER": 0.004111111111111111,
+      "raw_EVM": 1.1816413539180621,
+      "LMS_EVM": 0.3652191939968737
+    },
+    {
+      "scheme": "QPSK",
+      "channel": "flat",
+      "raw_BER": 5.555555555555556e-05,
+      "LMS_BER": 0.00011111111111111112,
+      "raw_EVM": 0.2507365516847604,
+      "LMS_EVM": 0.2575907743229212
+    },
+    {
+      "scheme": "QPSK",
+      "channel": "mild",
+      "raw_BER": 0.15911111111111112,
+      "LMS_BER": 0.024722222222222222,
+      "raw_EVM": 0.7949972938045798,
+      "LMS_EVM": 0.4590296480606435
+    },
+    {
+      "scheme": "QPSK",
+      "channel": "severe",
+      "raw_BER": 0.30827777777777776,
+      "LMS_BER": 0.005222222222222222,
+      "raw_EVM": 1.1879060113151907,
+      "LMS_EVM": 0.37640885431647414
+    }
+  ]
+}
